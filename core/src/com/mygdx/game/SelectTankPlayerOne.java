@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.ScreenUtils;
 
 public class SelectTankPlayerOne implements Screen {
 
@@ -35,6 +36,9 @@ public class SelectTankPlayerOne implements Screen {
     int playerOneTank = 0;
     int vsPlayer;
     public SelectTankPlayerOne(MyGdxGame game, int vsPlayer){
+
+
+
         this.game=game;
         this.vsPlayer = vsPlayer;
         batch= new SpriteBatch();
@@ -44,9 +48,9 @@ public class SelectTankPlayerOne implements Screen {
         chooseFrost = new Sprite(new Texture("chooseFrost.png"));
         chooseMark = new Sprite(new Texture("chooseMark.png"));
 
-        selectBlazer = new Sprite(new Texture("selectBlazer.png"));
-        selectFrost = new Sprite(new Texture("selectFrost.png"));
-        selectMark = new Sprite(new Texture("selectMark.png"));
+        selectBlazer = new Sprite(new Texture("SelectBlazer.png"));
+        selectFrost = new Sprite(new Texture("SelectFrost.png"));
+        selectMark = new Sprite(new Texture("SelectMark.png"));
 
         chooseTank = new Sprite(new Texture("choose.png"));
         playButton = new Sprite(new Texture("play.png"));
@@ -67,7 +71,7 @@ public class SelectTankPlayerOne implements Screen {
     @Override
     public void render(float delta) {
         Gdx.gl.glLineWidth(4);
-//        ScreenUtils.clear(0,0,0,1);
+        ScreenUtils.clear(0,0,0,1);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
@@ -185,6 +189,7 @@ public class SelectTankPlayerOne implements Screen {
 
     @Override
     public void dispose() {
+        batch.dispose();
 
     }
 }

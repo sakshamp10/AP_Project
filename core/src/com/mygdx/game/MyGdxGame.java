@@ -27,14 +27,6 @@ public class MyGdxGame extends Game {
 	@Override
 	public void render () {
 		super.render();
-//		ScreenUtils.clear(1, 0, 1, 0);
-//		batch.begin();
-//		batch.draw(img, 0, 0);
-//		if(Gdx.input.isTouched()){
-//			game.setS
-//		}
-////		batch.draw(button, 50+Gdx.graphics.getWidth()/2-sprite.getWidth()/2,Gdx.graphics.getHeight()/3-sprite.getHeight()/2);
-//		batch.end();
 	}
 	
 	@Override

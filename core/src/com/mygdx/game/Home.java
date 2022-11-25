@@ -51,31 +51,32 @@ public class Home implements Screen {
         batch.draw(match,2*viewWidth/3+100,100+viewHeight/2);
         batch.draw(menu,2*viewWidth/3+100,viewHeight/2-200);
         batch.draw(exit,2*viewWidth/3+100,viewHeight/2-500);
-        if(Gdx.input.isTouched()){
+        if(Gdx.input.isTouched()) {
             Vector3 v = new Vector3();
-            v.x= Gdx.input.getX();
-            v.y= Gdx.input.getY();
+            v.x = Gdx.input.getX();
+            v.y = Gdx.input.getY();
             camera.unproject(v);
 //            System.out.println(v.x +" "+v.y);
 
 
-            if(v.x>=1382 && v.x<=1842 && v.y<=799 && v.y>=645){
-                game.setScreen(new inGame(game));
+            if (v.x >= 1382 && v.x <= 1842 && v.y <= 799 && v.y >= 645) {
+                game.setScreen(new SelectTankPlayerOne(game, 1));
                 dispose();
-            }
-            if(v.x>=1382 && v.x<=1842 && v.y<=497 && v.y>=345){
-//                game.setScreen(new SavedGames(game));
-//                game.setScreen(new SelectTankPlayerOne(game,1));
+//                game.setScreen(new inGame(game));
 //                dispose();
+            }
+            if (v.x >= 1382 && v.x <= 1842 && v.y <= 497 && v.y >= 345) {
+                game.setScreen(new SavedGames(game));
+                dispose();
+
 
             }
-            if(v.x>=1382 && v.x<=1842 && v.y<=197 && v.y>=195){
+            if (v.x >= 1382 && v.x <= 1842 && v.y <= 197 && v.y >= 195) {
                 //exit functionality
             }
 //            game.setScreen(new inGame(game));
 //            dispose();
         }
-
         batch.end();
     }
 
@@ -106,5 +107,8 @@ public class Home implements Screen {
         img2.getTexture().dispose();
         frost.getTexture().dispose();
         logo.getTexture().dispose();
+        match.getTexture().dispose();
+        menu.getTexture().dispose();
+        exit.getTexture().dispose();
     }
 }

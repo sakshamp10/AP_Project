@@ -32,6 +32,7 @@ public class SelectTankPlayerTwo implements Screen {
     final float viewWidth = 1920;
     final float viewHeight = 1080;
     public SelectTankPlayerTwo(MyGdxGame game){
+        System.out.println("check11");
         this.game=game;
         batch= new SpriteBatch();
         img2 = new Sprite(new Texture("menuBG2.png"));
@@ -54,6 +55,7 @@ public class SelectTankPlayerTwo implements Screen {
         markCircle = new Circle(2*viewWidth/3+325,viewHeight/2-200,75);
         playerTwoRectangle = new Rectangle(2*viewWidth/3+200,viewHeight/2-500, 250, 100);
 
+        System.out.println("check22");
     }
 
     @Override
@@ -181,6 +183,7 @@ public class SelectTankPlayerTwo implements Screen {
 
     @Override
     public void dispose() {
+        batch.dispose();
 
     }
 }

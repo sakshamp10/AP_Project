@@ -40,6 +40,9 @@ public class inGame implements Screen {
         batch.draw(Tank1,viewWidth/4 - 100,viewHeight/2 - 200,200,120);
         Tank1.setX(viewWidth/4 - 100);
         Tank1.setY(viewHeight/2 - 200);
+        batch.draw(Tank2,3*viewWidth/4 ,viewHeight/2 - 200,200,120);
+        Tank2.setX(3*viewWidth/4);
+        Tank2.setY(viewHeight/2 - 200);
         batch.end();
     }
 
@@ -55,16 +58,22 @@ public class inGame implements Screen {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
-            Tank1.translateX(-1f);
+            Tank2.translateX(-1f);
         }
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
+            Tank2.translateX(1f);
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.D)){
             Tank1.translateX(1f);
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.A)){
+            Tank1.translateX(-1f);
         }
         batch.begin();
         batch.draw(Bg,0,0,viewWidth,viewHeight);
         batch.draw(terrain,0,0, viewWidth,viewHeight/2 - 200);
         batch.draw(Tank1,Tank1.getX(),Tank1.getY(),200,120);
-        batch.draw(Tank2,3*viewWidth/4 ,viewHeight/2 - 200,200,120);
+        batch.draw(Tank2,Tank2.getX() ,Tank2.getY(),200,120);
         batch.draw(health,viewWidth/4-150,viewHeight-100,500,100);
         batch.draw(e_health,viewWidth/4+600,viewHeight-100,500,100);
         batch.draw(vs,viewWidth/4+425,viewHeight-100,100,100);
