@@ -17,13 +17,15 @@ public class Home implements Screen {
     SpriteBatch batch;
     OrthographicCamera camera;
     Sprite img2,img,frost,logo;
-    Sprite bg,match,menu,exit;
+    Sprite bg,match,menu,exit,home;
+    Sprite selectBlazer,selectFrost,selectMark;
 
     final float viewWidth = 1920;
     final float viewHeight = 1080;
     public Home(MyGdxGame game){
         this.game=game;
         batch= new SpriteBatch();
+        home=new Sprite(new Texture("home.png"));
         img= new Sprite(new Texture("MenuBG.png"));
         img2 = new Sprite(new Texture("menuBG2.png"));
         frost = new Sprite(new Texture("frost.png"));
@@ -40,9 +42,11 @@ public class Home implements Screen {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(img,0,0,2*viewWidth/3,viewHeight);
-        batch.draw(frost,viewWidth/3-290,viewHeight/3-110,viewWidth/4,viewHeight/3);
-        batch.draw(logo,viewWidth/3-190,viewHeight/3+400,450,240);
+//        batch.draw(img,0,0,2*viewWidth/3,viewHeight);
+        batch.draw(home,0,0,2*viewWidth/3,viewHeight);
+
+//        batch.draw(frost,viewWidth/3-290,viewHeight/3-110,viewWidth/4,viewHeight/3);
+//        batch.draw(logo,viewWidth/3-190,viewHeight/3+400,450,240);
         batch.draw(img2,2*viewWidth/3,0,viewWidth/3,viewHeight);
         batch.draw(match,2*viewWidth/3+100,100+viewHeight/2);
         batch.draw(menu,2*viewWidth/3+100,viewHeight/2-200);
@@ -53,16 +57,23 @@ public class Home implements Screen {
             v.y= Gdx.input.getY();
             camera.unproject(v);
 //            System.out.println(v.x +" "+v.y);
+
+
             if(v.x>=1382 && v.x<=1842 && v.y<=799 && v.y>=645){
                 game.setScreen(new inGame(game));
                 dispose();
             }
             if(v.x>=1382 && v.x<=1842 && v.y<=497 && v.y>=345){
 //                game.setScreen(new SavedGames(game));
+//                game.setScreen(new SelectTankPlayerOne(game,1));
+//                dispose();
+
             }
             if(v.x>=1382 && v.x<=1842 && v.y<=197 && v.y>=195){
                 //exit functionality
             }
+//            game.setScreen(new inGame(game));
+//            dispose();
         }
 
         batch.end();

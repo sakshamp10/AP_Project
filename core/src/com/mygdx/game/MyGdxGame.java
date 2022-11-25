@@ -21,6 +21,7 @@ public class MyGdxGame extends Game {
 		font = new BitmapFont();
 		batch = new SpriteBatch();
 		this.setScreen(new Loading(this));
+//		this.setScreen(new SelectTankPlayerOne(this,1));
 	}
 
 	@Override
