@@ -25,7 +25,7 @@ public class inGame implements Screen {
 
     public inGame(MyGdxGame game){
         this.tank1 = new Tank(1,1,1);
-        this.tank2 = new Tank(1,1,1);
+        this.tank2 = new Tank(1,1,2);
         this.game=game;
         batch = new SpriteBatch();
         terrain = new Sprite(new Texture("canyon.png"));
