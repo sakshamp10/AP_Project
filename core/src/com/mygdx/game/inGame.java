@@ -12,6 +12,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 public class inGame implements Screen {
 
+    Tank tank1,tank2;
     final MyGdxGame game;
     SpriteBatch batch;
     Sprite terrain,Bg,gamebar,Tank1, Tank2,health,e_health,vs,menu;
@@ -23,6 +24,8 @@ public class inGame implements Screen {
 
 
     public inGame(MyGdxGame game){
+        this.tank1 = new Tank(1,1,1);
+        this.tank2 = new Tank(1,1,1);
         this.game=game;
         batch = new SpriteBatch();
         terrain = new Sprite(new Texture("canyon.png"));
@@ -68,6 +71,10 @@ public class inGame implements Screen {
         }
         if(Gdx.input.isKeyPressed(Input.Keys.A)){
             Tank1.translateX(-1f);
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.ESCAPE)){
+            game.setScreen(new Menu(game));
+            dispose();
         }
         batch.begin();
         batch.draw(Bg,0,0,viewWidth,viewHeight);

@@ -24,7 +24,7 @@ public class SelectTankPlayerOne implements Screen {
     Sprite chooseTank;
 
     Sprite playButton;
-    ShapeRenderer shapeRenderer;
+    ShapeRenderer renderer;
 
     Circle blazerCircle,frostCircle,markCircle;
     Rectangle playerOneRectangle;
@@ -43,7 +43,7 @@ public class SelectTankPlayerOne implements Screen {
         this.vsPlayer = vsPlayer;
         batch= new SpriteBatch();
         img2 = new Sprite(new Texture("menuBG2.png"));
-        shapeRenderer = new ShapeRenderer();
+        renderer = new ShapeRenderer();
         chooseBlazer = new Sprite(new Texture("chooseBlazer.png"));
         chooseFrost = new Sprite(new Texture("chooseFrost.png"));
         chooseMark = new Sprite(new Texture("chooseMark.png"));
@@ -72,33 +72,33 @@ public class SelectTankPlayerOne implements Screen {
     public void render(float delta) {
         Gdx.gl.glLineWidth(4);
         ScreenUtils.clear(0,0,0,1);
-        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        renderer.begin(ShapeRenderer.ShapeType.Line);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
-        shapeRenderer.setProjectionMatrix(camera.combined);
+        renderer.setProjectionMatrix(camera.combined);
 //        renderer.setProjectionMatrix(camera.combined);
 
         batch.begin();
         batch.draw(img2,2*viewWidth/3,0,viewWidth/3,viewHeight);
         batch.draw(chooseTank,2*viewWidth/3+150,viewHeight/2+400);
         batch.draw(playButton,2*viewWidth/3+200,viewHeight/2-500, 250, 100);
-        shapeRenderer.rect(playerOneRectangle.x,playerOneRectangle.y,playerOneRectangle.width,playerOneRectangle.height);
+        renderer.rect(playerOneRectangle.x,playerOneRectangle.y,playerOneRectangle.width,playerOneRectangle.height);
 
         batch.draw(chooseBlazer,2*viewWidth/3+250,blazerCircle.y-75,150,150);
         batch.draw(chooseFrost,2*viewWidth/3+250,frostCircle.y -75,150,150);
         batch.draw(chooseMark,2*viewWidth/3+250,markCircle.y -75, 150,150);
         if(count == 1){
             batch.draw(selectBlazer,0,0,2*viewWidth/3,viewHeight);
-            shapeRenderer.circle(blazerCircle.x,blazerCircle.y,blazerCircle.radius);
+            renderer.circle(blazerCircle.x,blazerCircle.y,blazerCircle.radius);
         }
         else if(count == 2){
             batch.draw(selectFrost,0,0,2*viewWidth/3,viewHeight);
-            shapeRenderer.circle(frostCircle.x,frostCircle.y,frostCircle.radius);
+            renderer.circle(frostCircle.x,frostCircle.y,frostCircle.radius);
 
         }
         else if(count == 3){
             batch.draw(selectMark,0,0,2*viewWidth/3,viewHeight);
-            shapeRenderer.circle(markCircle.x,markCircle.y,markCircle.radius);
+            renderer.circle(markCircle.x,markCircle.y,markCircle.radius);
 
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
@@ -157,7 +157,7 @@ public class SelectTankPlayerOne implements Screen {
 
         batch.end();
 
-        shapeRenderer.end();
+        renderer.end();
 
 
 
