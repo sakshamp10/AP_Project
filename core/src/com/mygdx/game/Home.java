@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import static java.lang.System.exit;
+
 public class Home implements Screen {
 
     final MyGdxGame game;
@@ -27,7 +29,7 @@ public class Home implements Screen {
         frost = new Sprite(new Texture("frost.png"));
         logo = new Sprite(new Texture("logo.png"));
         match = new Sprite(new Texture("1v1.png"));
-        menu = new Sprite(new Texture("MenuSettings.png"));
+        menu = new Sprite(new Texture("saved games.png"));
         exit = new Sprite(new Texture("Exit.png"));
         camera = new OrthographicCamera(viewWidth, viewHeight);
         camera.position.set( viewWidth/2,viewHeight/2,0);
@@ -46,15 +48,23 @@ public class Home implements Screen {
         batch.draw(menu,2*viewWidth/3+100,viewHeight/2-200);
         batch.draw(exit,2*viewWidth/3+100,viewHeight/2-500);
         if(Gdx.input.isTouched()){
-            game.setScreen(new inGame(game));
-            dispose();
-
+            Vector3 v = new Vector3();
+            v.x= Gdx.input.getX();
+            v.y= Gdx.input.getY();
+            camera.unproject(v);
+//            System.out.println(v.x +" "+v.y);
+            if(v.x>=1382 && v.x<=1842 && v.y<=799 && v.y>=645){
+                game.setScreen(new inGame(game));
+                dispose();
+            }
+            if(v.x>=1382 && v.x<=1842 && v.y<=497 && v.y>=345){
+//                game.setScreen(new SavedGames(game));
+            }
+            if(v.x>=1382 && v.x<=1842 && v.y<=197 && v.y>=195){
+                //exit functionality
+            }
         }
 
-
-        if(Gdx.input.isTouched()){
-
-        }
         batch.end();
     }
 

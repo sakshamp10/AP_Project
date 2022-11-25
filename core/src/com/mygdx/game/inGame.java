@@ -14,7 +14,7 @@ public class inGame implements Screen {
 
     final MyGdxGame game;
     SpriteBatch batch;
-    Sprite terrain,Bg,gamebar,Tank1, Tank2;
+    Sprite terrain,Bg,gamebar,Tank1, Tank2,health,e_health,vs,menu;
 
     final float viewWidth = 1920;
     final float viewHeight = 1080;
@@ -30,6 +30,10 @@ public class inGame implements Screen {
         gamebar = new Sprite(new Texture("gamebar.png"));
         Tank1 = new Sprite(new Texture("frostInGame.png"));
         Tank2 = new Sprite(new Texture("Tank2.png"));
+        health = new Sprite(new Texture("Health (1).png"));
+        e_health = new Sprite(new Texture("e_health (1).png"));
+        vs = new Sprite(new Texture("vs (1).png"));
+         menu= new Sprite(new Texture("Menu.png"));
         camera = new OrthographicCamera(viewWidth, viewHeight);
         camera.position.set(viewWidth/2,viewHeight/2,0);
         batch.begin();
@@ -52,17 +56,19 @@ public class inGame implements Screen {
         batch.setProjectionMatrix(camera.combined);
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
             Tank1.translateX(-1f);
-            System.out.println("left");
         }
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             Tank1.translateX(1f);
-            System.out.println("right");
         }
         batch.begin();
         batch.draw(Bg,0,0,viewWidth,viewHeight);
         batch.draw(terrain,0,0, viewWidth,viewHeight/2 - 200);
         batch.draw(Tank1,Tank1.getX(),Tank1.getY(),200,120);
         batch.draw(Tank2,3*viewWidth/4 ,viewHeight/2 - 200,200,120);
+        batch.draw(health,viewWidth/4-150,viewHeight-100,500,100);
+        batch.draw(e_health,viewWidth/4+600,viewHeight-100,500,100);
+        batch.draw(vs,viewWidth/4+425,viewHeight-100,100,100);
+        batch.draw(menu,0,viewHeight-100,100,100);
         batch.end();
     }
 
