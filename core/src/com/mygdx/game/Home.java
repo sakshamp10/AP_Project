@@ -46,19 +46,8 @@ public class Home implements Screen {
         batch.draw(menu,2*viewWidth/3+100,viewHeight/2-200);
         batch.draw(exit,2*viewWidth/3+100,viewHeight/2-500);
         if(Gdx.input.isTouched()){
-            Vector3 touchPos = new Vector3();
-            touchPos.set(Gdx.input.getX(),Gdx.input.getY(),0);
-            System.out.println(touchPos.x+ " "+ touchPos.y);
-            if(touchPos.x<=2368 && touchPos.x>=1910 && touchPos.y>=342 && touchPos.y<=490){
-                game.setScreen(new inGame(game));
-                dispose();
-            }
-            else if(touchPos.x<=2368 && touchPos.x>=1910 && touchPos.y>=642 && touchPos.y<=793){
-                //settings
-            }
-            else if(touchPos.x<=2368 && touchPos.x>=1910 && touchPos.y>=942 && touchPos.y<=1095){
-                //exit
-            }
+            game.setScreen(new inGame(game));
+            dispose();
 
         }
 
