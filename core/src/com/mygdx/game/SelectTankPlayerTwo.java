@@ -71,92 +71,92 @@ public class SelectTankPlayerTwo implements Screen {
     public void render(float delta) {
 //        Gdx.gl.glLineWidth(4);
         ScreenUtils.clear(0,0,0,1);
-//        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-//        camera.update();
-//        batch.setProjectionMatrix(camera.combined);
-//        shapeRenderer.setProjectionMatrix(camera.combined);
-////        renderer.setProjectionMatrix(camera.combined);
-//
-//        batch.begin();
-//        batch.draw(img2,2*viewWidth/3,0,viewWidth/3,viewHeight);
-//        batch.draw(chooseTank,2*viewWidth/3+150,viewHeight/2+400);
-//        batch.draw(playButton,2*viewWidth/3+200,viewHeight/2-500, 250, 100);
-//        shapeRenderer.rect(playerOneRectangle.x,playerOneRectangle.y,playerOneRectangle.width,playerOneRectangle.height);
-//
-//        batch.draw(chooseBlazer,2*viewWidth/3+250,blazerCircle.y-75,150,150);
-//        batch.draw(chooseFrost,2*viewWidth/3+250,frostCircle.y -75,150,150);
-//        batch.draw(chooseMark,2*viewWidth/3+250,markCircle.y -75, 150,150);
-//        if(count == 1){
-//            batch.draw(selectBlazer,0,0,2*viewWidth/3,viewHeight);
-//            shapeRenderer.circle(blazerCircle.x,blazerCircle.y,blazerCircle.radius);
-//        }
-//        else if(count == 2){
-//            batch.draw(selectFrost,0,0,2*viewWidth/3,viewHeight);
-//            shapeRenderer.circle(frostCircle.x,frostCircle.y,frostCircle.radius);
-//
-//        }
-//        else if(count == 3){
-//            batch.draw(selectMark,0,0,2*viewWidth/3,viewHeight);
-//            shapeRenderer.circle(markCircle.x,markCircle.y,markCircle.radius);
-//
-//        }
-//        if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
-//            count++;
-//            if(count == 4){
-//                count = 1;
-//            }
-//            System.out.println(count);
-//        }
-//        if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
-//            count--;
-//            if(count == 0){
-//                count = 3;
-//            }
-//            System.out.println(count);
-//        }
-//        if (Gdx.input.isTouched()){
-//            Vector3 touchPos = new Vector3();
-//            touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
-//            camera.unproject(touchPos);
-//            System.out.println(touchPos.x + " " + touchPos.y);
-//            System.out.println(blazerCircle.x + " " + blazerCircle.y);
-//            if (blazerCircle.contains(touchPos.x,  touchPos.y)) {
-//                count = 1;
-//            }
-//            if (frostCircle.contains(touchPos.x,  touchPos.y)) {
-//                count = 2;
-//            }
-//            if (markCircle.contains(touchPos.x,  touchPos.y)) {
-//                count = 3;
-//            }
-//            if (playerOneRectangle.contains(touchPos.x,  touchPos.y)) {
-//                if(count == 1){
-//                    if (this.vsPlayer==1) {
-////                        game.setScreen(new SelectTankPlayerTwo(game));
-////                        dispose();
-//                    }
-//                }
-//                else if(count == 2){
-//                    if (this.vsPlayer==1) {
-////                        game.setScreen(new SelectTankPlayerTwo(game));
-////                        dispose();
-//                    }
-//                }
-//                else if(count == 3){
-//                    if (this.vsPlayer==1) {
-////                        game.setScreen(new SelectTankPlayerTwo(game));
-////                        dispose();
-//                    }
-//                }
-//
-//            }
-//
-//
-//        }
-//
-//        batch.end();
-//
-//        shapeRenderer.end();
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+        shapeRenderer.setProjectionMatrix(camera.combined);
+//        renderer.setProjectionMatrix(camera.combined);
+
+        batch.begin();
+        batch.draw(img2,2*viewWidth/3,0,viewWidth/3,viewHeight);
+        batch.draw(chooseTank,2*viewWidth/3+150,viewHeight/2+400);
+        batch.draw(playButton,2*viewWidth/3+200,viewHeight/2-500, 250, 100);
+        shapeRenderer.rect(playerOneRectangle.x,playerOneRectangle.y,playerOneRectangle.width,playerOneRectangle.height);
+
+        batch.draw(chooseBlazer,2*viewWidth/3+250,blazerCircle.y-75,150,150);
+        batch.draw(chooseFrost,2*viewWidth/3+250,frostCircle.y -75,150,150);
+        batch.draw(chooseMark,2*viewWidth/3+250,markCircle.y -75, 150,150);
+        if(count == 1){
+            batch.draw(selectBlazer,0,0,2*viewWidth/3,viewHeight);
+            shapeRenderer.circle(blazerCircle.x,blazerCircle.y,blazerCircle.radius);
+        }
+        else if(count == 2){
+            batch.draw(selectFrost,0,0,2*viewWidth/3,viewHeight);
+            shapeRenderer.circle(frostCircle.x,frostCircle.y,frostCircle.radius);
+
+        }
+        else if(count == 3){
+            batch.draw(selectMark,0,0,2*viewWidth/3,viewHeight);
+            shapeRenderer.circle(markCircle.x,markCircle.y,markCircle.radius);
+
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+            count++;
+            if(count == 4){
+                count = 1;
+            }
+            System.out.println(count);
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
+            count--;
+            if(count == 0){
+                count = 3;
+            }
+            System.out.println(count);
+        }
+        if (Gdx.input.isTouched()){
+            Vector3 touchPos = new Vector3();
+            touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
+            camera.unproject(touchPos);
+            System.out.println(touchPos.x + " " + touchPos.y);
+            System.out.println(blazerCircle.x + " " + blazerCircle.y);
+            if (blazerCircle.contains(touchPos.x,  touchPos.y)) {
+                count = 1;
+            }
+            if (frostCircle.contains(touchPos.x,  touchPos.y)) {
+                count = 2;
+            }
+            if (markCircle.contains(touchPos.x,  touchPos.y)) {
+                count = 3;
+            }
+            if (playerOneRectangle.contains(touchPos.x,  touchPos.y)) {
+                if(count == 1){
+                    if (this.vsPlayer==1) {
+                        game.setScreen(new inGame(game));
+                        dispose();
+                    }
+                }
+                else if(count == 2){
+                    if (this.vsPlayer==1) {
+                        game.setScreen(new inGame(game));
+                        dispose();
+                    }
+                }
+                else if(count == 3){
+                    if (this.vsPlayer==1) {
+                        game.setScreen(new inGame(game));
+                        dispose();
+                    }
+                }
+
+            }
+
+
+        }
+
+        batch.end();
+
+        shapeRenderer.end();
 
 
 

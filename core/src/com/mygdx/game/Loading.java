@@ -53,7 +53,7 @@ public class Loading implements Screen {
         batch.end();
 //        batch.draw(sprite, Gdx.graphics.getWidth()/2-sprite.getWidth()/2,Gdx.graphics.getHeight()/3-sprite.getHeight()/2);
         if(Gdx.input.isTouched()){
-            game.setScreen(new inGame(game));
+            game.setScreen(new Home(game));
 //            game.setScreen(new SelectTankPlayerOne(game,1));
             dispose();
         }
